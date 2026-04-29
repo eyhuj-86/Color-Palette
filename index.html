@@ -1,0 +1,135 @@
+<head>
+<style>
+  body { 
+    font-family: -apple-system, sans-serif;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  .category-header {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 40px 0 15px 10px;
+    padding-left: 12px;
+    border-left: 5px solid #333;
+    color: #222;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 10px;
+  }
+  
+  .color-card {
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .color-card:hover { transform: scale(1.05); }
+
+  .name { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+  .code { font-size: 0.75rem; opacity: 0.8; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+  <div class="category-header">Palette A</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#FF6464" data-hex="#FF6464"></div>
+    <div class="color-card" data-name="#FFE162" data-hex="#FFE162"></div>
+    <div class="color-card" data-name="#91C483" data-hex="#91C483"></div>
+    <div class="color-card" data-name="#EEEEEE" data-hex="#EEEEEE"></div>
+
+  </div>
+
+  <div class="category-header">Palette B</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#DD4A48" data-hex="#DD4A48"></div>
+    <div class="color-card" data-name="#F5EEDC" data-hex="#F5EEDC"></div>
+    <div class="color-card" data-name="#C0D8C0" data-hex="#C0D8C0"></div>
+    <div class="color-card" data-name="#ECB390" data-hex="#ECB390"></div>
+
+  </div>
+
+  <div class="category-header">Palette C</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#00B4D8" data-hex="#00B4D8"></div>
+    <div class="color-card" data-name="#90E0EF" data-hex="#90E0EF"></div>
+    <div class="color-card" data-name="#03045E" data-hex="#03045E"></div>
+    <div class="color-card" data-name="#CAF0F8" data-hex="#CAF0F8"></div>
+
+  </div>
+
+  <div class="category-header">Palette D</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#FFF1CE" data-hex="#FFF1CE"></div>
+    <div class="color-card" data-name="#139487" data-hex="#139487"></div>
+    <div class="color-card" data-name="#86C6F4" data-hex="#86C6F4"></div>
+    <div class="color-card" data-name="#D29D2B" data-hex="#D29D2B"></div>
+
+  </div>
+
+  <div class="category-header">Palette E</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#FDEFF4" data-hex="#FDEFF4"></div>
+    <div class="color-card" data-name="#FF5C8D" data-hex="#FF5C8D"></div>
+    <div class="color-card" data-name="#FFC0D3" data-hex="#FFC0D3"></div>
+    <div class="color-card" data-name="#524A4E" data-hex="#524A4E"></div>
+
+  </div>
+
+  <div class="category-header">Palette F</div>
+  <div class="color-grid">
+    <div class="color-card" data-name="#FF8474" data-hex="#FF8474"></div>
+    <div class="color-card" data-name="#FFC996" data-hex="#FFC996"></div>
+    <div class="color-card" data-name="#9F5F80" data-hex="#9F5F80"></div>
+    <div class="color-card" data-name="#583D72" data-hex="#583D72"></div>
+
+  </div>
+  
+<script>
+// HEX를 RGB 객체로 변환
+  function getRgb(hex) {
+    return {
+      r: parseInt(hex.slice(1, 3), 16),
+      g: parseInt(hex.slice(3, 5), 16),
+      b: parseInt(hex.slice(5, 7), 16)
+    };
+  }
+
+  // 밝기(Brightness)를 계산하여 검정/흰색 결정
+  function getContrastColor(hex) {
+    const {r, g, b} = getRgb(hex);
+    // 인간의 눈이 인지하는 밝기 가중치 공식 (YIQ)
+    const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    return (yiq >= 128) ? 'black' : 'white';
+  }
+
+  document.querySelectorAll('.color-card').forEach(card => {
+    const hex = card.getAttribute('data-hex');
+    const name = card.getAttribute('data-name');
+    const {r, g, b} = getRgb(hex);
+    
+    // 배경색 설정
+    card.style.backgroundColor = hex;
+    // 글자색 자동 설정
+    card.style.color = getContrastColor(hex);
+    
+    card.innerHTML = `
+      <div class="name">${name}</div>
+      <div class="code">${hex}<br>${r}, ${g}, ${b}</div>
+    `;
+  });
+</script>
+</body>
