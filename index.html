@@ -6,6 +6,11 @@
     background-color: #ffffff;
   }
 
+  /* 카테고리 섹션 자체를 숨기기 위한 설정 */
+  .category-section { display: none; }
+  /* active 클래스가 붙은 섹션만 표시 */
+  .category-section.active { display: block; }
+  
   .category-header {
     font-size: 1.2rem;
     font-weight: 800;
@@ -37,68 +42,87 @@
   }
 
   .color-card:hover { transform: scale(1.05); }
-
   .name { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
   .code { font-size: 0.75rem; opacity: 0.8; line-height: 1.4; }
 </style>
 </head>
 <body>
 
-  <div class="category-header">Palette A</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#FF6464" data-hex="#FF6464"></div>
-    <div class="color-card" data-name="#FFE162" data-hex="#FFE162"></div>
-    <div class="color-card" data-name="#91C483" data-hex="#91C483"></div>
-    <div class="color-card" data-name="#EEEEEE" data-hex="#EEEEEE"></div>
-
+  <div class="category-section" id="A">
+    <div class="category-header">Palette A</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#FF6464" data-hex="#FF6464"></div>
+      <div class="color-card" data-name="#FFE162" data-hex="#FFE162"></div>
+      <div class="color-card" data-name="#91C483" data-hex="#91C483"></div>
+      <div class="color-card" data-name="#EEEEEE" data-hex="#EEEEEE"></div>
+    </div>
   </div>
 
-  <div class="category-header">Palette B</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#DD4A48" data-hex="#DD4A48"></div>
-    <div class="color-card" data-name="#F5EEDC" data-hex="#F5EEDC"></div>
-    <div class="color-card" data-name="#C0D8C0" data-hex="#C0D8C0"></div>
-    <div class="color-card" data-name="#ECB390" data-hex="#ECB390"></div>
-
+  <div class="category-section" id="B">
+    <div class="category-header">Palette B</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#DD4A48" data-hex="#DD4A48"></div>
+      <div class="color-card" data-name="#F5EEDC" data-hex="#F5EEDC"></div>
+      <div class="color-card" data-name="#C0D8C0" data-hex="#C0D8C0"></div>
+      <div class="color-card" data-name="#ECB390" data-hex="#ECB390"></div>
+    </div>
   </div>
 
-  <div class="category-header">Palette C</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#00B4D8" data-hex="#00B4D8"></div>
-    <div class="color-card" data-name="#90E0EF" data-hex="#90E0EF"></div>
-    <div class="color-card" data-name="#03045E" data-hex="#03045E"></div>
-    <div class="color-card" data-name="#CAF0F8" data-hex="#CAF0F8"></div>
-
+  <div class="category-section" id="C">
+    <div class="category-header">Palette C</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#00B4D8" data-hex="#00B4D8"></div>
+      <div class="color-card" data-name="#90E0EF" data-hex="#90E0EF"></div>
+      <div class="color-card" data-name="#03045E" data-hex="#03045E"></div>
+      <div class="color-card" data-name="#CAF0F8" data-hex="#CAF0F8"></div>
+    </div>
   </div>
 
-  <div class="category-header">Palette D</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#FFF1CE" data-hex="#FFF1CE"></div>
-    <div class="color-card" data-name="#139487" data-hex="#139487"></div>
-    <div class="color-card" data-name="#86C6F4" data-hex="#86C6F4"></div>
-    <div class="color-card" data-name="#D29D2B" data-hex="#D29D2B"></div>
-
+  <div class="category-section" id="D">
+    <div class="category-header">Palette D</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#FFF1CE" data-hex="#FFF1CE"></div>
+      <div class="color-card" data-name="#139487" data-hex="#139487"></div>
+      <div class="color-card" data-name="#86C6F4" data-hex="#86C6F4"></div>
+      <div class="color-card" data-name="#D29D2B" data-hex="#D29D2B"></div>
+    </div>
   </div>
 
-  <div class="category-header">Palette E</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#FDEFF4" data-hex="#FDEFF4"></div>
-    <div class="color-card" data-name="#FF5C8D" data-hex="#FF5C8D"></div>
-    <div class="color-card" data-name="#FFC0D3" data-hex="#FFC0D3"></div>
-    <div class="color-card" data-name="#524A4E" data-hex="#524A4E"></div>
-
+  <div class="category-section" id="E">
+    <div class="category-header">Palette E</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#FDEFF4" data-hex="#FDEFF4"></div>
+      <div class="color-card" data-name="#FF5C8D" data-hex="#FF5C8D"></div>
+      <div class="color-card" data-name="#FFC0D3" data-hex="#FFC0D3"></div>
+      <div class="color-card" data-name="#524A4E" data-hex="#524A4E"></div>
+    </div>
   </div>
 
-  <div class="category-header">Palette F</div>
-  <div class="color-grid">
-    <div class="color-card" data-name="#FF8474" data-hex="#FF8474"></div>
-    <div class="color-card" data-name="#FFC996" data-hex="#FFC996"></div>
-    <div class="color-card" data-name="#9F5F80" data-hex="#9F5F80"></div>
-    <div class="color-card" data-name="#583D72" data-hex="#583D72"></div>
-
+  <div class="category-section" id="F">
+    <div class="category-header">Palette F</div>
+    <div class="color-grid">
+      <div class="color-card" data-name="#FF8474" data-hex="#FF8474"></div>
+      <div class="color-card" data-name="#FFC996" data-hex="#FFC996"></div>
+      <div class="color-card" data-name="#9F5F80" data-hex="#9F5F80"></div>
+      <div class="color-card" data-name="#583D72" data-hex="#583D72"></div>
+    </div>
   </div>
   
 <script>
+
+// URL 파라미터 제어 로직 추가
+  const params = new URLSearchParams(window.location.search);
+  const paletteParam = params.get('p'); // ?p=A 형태를 읽음
+
+  if (paletteParam) {
+    // 특정 파라미터가 있으면 해당 ID를 가진 섹션만 보여줌
+    const target = document.getElementById(paletteParam.toUpperCase());
+    if (target) target.classList.add('active');
+  } else {
+    // 파라미터가 없으면 모든 섹션에 active를 붙여 전체 표시
+    document.querySelectorAll('.category-section').forEach(sec => sec.classList.add('active'));
+  }
+
 // HEX를 RGB 객체로 변환
   function getRgb(hex) {
     return {
